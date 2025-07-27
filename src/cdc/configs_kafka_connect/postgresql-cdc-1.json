@@ -1,0 +1,19 @@
+{
+  "name": "transactions-cdc-analytics",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "database.hostname": "postgresql",
+    "database.port": "5432",
+    "database.user": "k6",
+    "database.password": "k6",
+    "database.dbname": "k6",
+    "database.server.name": "analytics",    
+    "table.include.list": "public.transactions",
+    "publication.name": "analytics_pub",
+    "topic.prefix": "analytics",             
+    "plugin.name": "pgoutput",
+    "slot.name": "analytics_slot",         
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter"
+  }
+}

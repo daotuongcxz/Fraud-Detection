@@ -1,0 +1,59 @@
+[2025-07-13T14:42:45.468+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-07-13T14:42:45.503+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fraud_detection_training.execute_training manual__2025-07-13T14:42:42.833547+00:00 [queued]>
+[2025-07-13T14:42:45.520+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fraud_detection_training.execute_training manual__2025-07-13T14:42:42.833547+00:00 [queued]>
+[2025-07-13T14:42:45.521+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-07-13T14:42:45.537+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): execute_training> on 2025-07-13 14:42:42.833547+00:00
+[2025-07-13T14:42:45.547+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=205) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-07-13T14:42:45.549+0000] {standard_task_runner.py:72} INFO - Started process 206 to run task
+[2025-07-13T14:42:45.550+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'fraud_detection_training', 'execute_training', 'manual__2025-07-13T14:42:42.833547+00:00', '--job-id', '40', '--raw', '--subdir', 'DAGS_FOLDER/fraud_detection_training_dag.py', '--cfg-path', '/tmp/tmp5yg_nk_w']
+[2025-07-13T14:42:45.551+0000] {standard_task_runner.py:105} INFO - Job 40: Subtask execute_training
+[2025-07-13T14:42:45.601+0000] {task_command.py:467} INFO - Running <TaskInstance: fraud_detection_training.execute_training manual__2025-07-13T14:42:42.833547+00:00 [running]> on host 2d98890b302a
+[2025-07-13T14:42:45.720+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='datamasterylab.com' AIRFLOW_CTX_DAG_ID='fraud_detection_training' AIRFLOW_CTX_TASK_ID='execute_training' AIRFLOW_CTX_EXECUTION_DATE='2025-07-13T14:42:42.833547+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-13T14:42:42.833547+00:00'
+[2025-07-13T14:42:45.721+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-07-13T14:42:50.892+0000] {warnings.py:112} WARNING - /opt/***/dags/fraud_detection_training.py:45: UserWarning: The numpy.array_api submodule is still experimental. See NEP 47.
+  from numpy.array_api import astype
+
+[2025-07-13T14:42:50.975+0000] {fraud_detection_training_dag.py:23} INFO - Initializing fraud detection training
+[2025-07-13T14:42:50.984+0000] {fraud_detection_training.py:120} INFO - Configuration loaded successfully
+[2025-07-13T14:42:51.597+0000] {fraud_detection_training.py:164} INFO - Minio connection verified. Buckets: ['mlflow']
+[2025-07-13T14:42:51.716+0000] {fraud_detection_training.py:314} INFO - Starting model training process
+[2025-07-13T14:42:51.716+0000] {fraud_detection_training.py:189} INFO - Connecting to kafka topic transactions
+[2025-07-13T14:42:51.717+0000] {logging_mixin.py:190} INFO - Kafka config - topic: %s, servers: %s, protocol: %s transactions ['broker:29092'] PLAINTEXT
+[2025-07-13T14:42:51.719+0000] {conn.py:396} INFO - <BrokerConnection client_id=kafka-python-2.2.13, node_id=bootstrap-0 host=broker:29092 <connecting> [IPv4 ('172.18.0.10', 29092)]>: connecting to broker:29092 [('172.18.0.10', 29092) IPv4]
+[2025-07-13T14:42:51.723+0000] {conn.py:618} INFO - <BrokerConnection client_id=kafka-python-2.2.13, node_id=bootstrap-0 host=broker:29092 <checking_api_versions_recv> [IPv4 ('172.18.0.10', 29092)]>: Broker version identified as 2.6
+[2025-07-13T14:42:51.723+0000] {conn.py:457} INFO - <BrokerConnection client_id=kafka-python-2.2.13, node_id=bootstrap-0 host=broker:29092 <connected> [IPv4 ('172.18.0.10', 29092)]>: Connection complete.
+[2025-07-13T14:42:51.724+0000] {consumer.py:120} WARNING - group_id is None: disabling auto-commit.
+[2025-07-13T14:42:51.724+0000] {subscription_state.py:181} INFO - Updating subscribed topics to: ('transactions',)
+[2025-07-13T14:42:51.727+0000] {subscription_state.py:254} INFO - Updated partition assignment: [('transactions', 0)]
+[2025-07-13T14:42:51.728+0000] {conn.py:396} INFO - <BrokerConnection client_id=kafka-python-2.2.13, node_id=1 host=broker:29092 <connecting> [IPv4 ('172.18.0.10', 29092)]>: connecting to broker:29092 [('172.18.0.10', 29092) IPv4]
+[2025-07-13T14:42:51.729+0000] {conn.py:457} INFO - <BrokerConnection client_id=kafka-python-2.2.13, node_id=1 host=broker:29092 <connected> [IPv4 ('172.18.0.10', 29092)]>: Connection complete.
+[2025-07-13T14:42:51.730+0000] {conn.py:945} INFO - <BrokerConnection client_id=kafka-python-2.2.13, node_id=bootstrap-0 host=broker:29092 <connected> [IPv4 ('172.18.0.10', 29092)]>: Closing connection. 
+[2025-07-13T14:42:51.732+0000] {fetcher.py:418} INFO - Resetting offset for partition ('transactions', 0) to offset 0.
+[2025-07-13T14:44:12.534+0000] {conn.py:945} INFO - <BrokerConnection client_id=kafka-python-2.2.13, node_id=1 host=broker:29092 <connected> [IPv4 ('172.18.0.10', 29092)]>: Closing connection. 
+[2025-07-13T14:44:12.535+0000] {fetcher.py:785} INFO - Fetch to node 1 failed: Cancelled: <BrokerConnection client_id=kafka-python-2.2.13, node_id=1 host=broker:29092 <connected> [IPv4 ('172.18.0.10', 29092)]>
+[2025-07-13T14:44:17.217+0000] {fraud_detection_training.py:235} INFO - Kafka data read successfully with fraud rate: 0.36%
+[2025-07-13T14:44:41.156+0000] {fraud_detection_training.py:394} INFO - Starting hyperparameter tuning...
+[2025-07-13T14:44:41.162+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/joblib/parallel.py:1379: UserWarning: Loky-backed parallel loops cannot be called in a multiprocessing, setting n_jobs=1
+  n_jobs = self._backend.configure(
+
+[2025-07-13T15:09:31.403+0000] {fraud_detection_training.py:398} INFO - Best hyperparameters: {'classifier__subsample': 0.6, 'classifier__reg_alpha': 0, 'classifier__max_depth': 7, 'classifier__learning_rate': 0.1, 'classifier__gamma': 0, 'classifier__colsample_bytree': 0.6}
+[2025-07-13T15:09:33.814+0000] {fraud_detection_training.py:406} INFO - Optimal threshold determined: 0.8480
+[2025-07-13T15:09:38.853+0000] {credentials.py:1147} INFO - Found credentials in environment variables.
+[2025-07-13T15:09:42.661+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/mlflow/types/utils.py:452: UserWarning: Hint: Inferred schema contains integer column(s). Integer columns in Python cannot represent missing values. If your input data contains missing values at inference time, it will be encoded as floats and will cause a schema enforcement error. The best way to avoid this problem is to infer the model schema based on a realistic data sample (training dataset) that includes missing values. Alternatively, you can declare integer columns as doubles (float64) whenever these columns may have missing values. See `Handling Integers With Missing Values <https://www.mlflow.org/docs/latest/models.html#handling-integers-with-missing-values>`_ for more details.
+  warnings.warn(
+
+[2025-07-13T15:09:42.665+0000] {logging_mixin.py:190} WARNING - 2025/07/13 15:09:42 WARNING mlflow.models.model: `artifact_path` is deprecated. Please use `name` instead.
+[2025-07-13T15:09:50.075+0000] {logging_mixin.py:190} WARNING - Successfully registered model 'fraud_detection_model'.
+[2025-07-13T15:09:50.163+0000] {logging_mixin.py:190} WARNING - 2025/07/13 15:09:50 INFO mlflow.store.model_registry.abstract_store: Waiting up to 300 seconds for model version to finish creation. Model name: fraud_detection_model, version 1
+[2025-07-13T15:09:50.163+0000] {logging_mixin.py:190} WARNING - Created version '1' of model 'fraud_detection_model'.
+[2025-07-13T15:09:50.281+0000] {fraud_detection_training.py:470} INFO - Training successfully completed with metrics: {'auc_pr': 0.4674354961259938, 'precision': 0.6452830188679245, 'recall': 0.4523809523809524, 'f1': 0.5318818040435459, 'threshold': 0.8479536771774292}
+[2025-07-13T15:09:50.311+0000] {logging_mixin.py:190} INFO - 🏃 View run awesome-quail-760 at: http://mlflow-server:5500/#/experiments/1/runs/c7cec88a9a2442169fccb7faf6808510
+[2025-07-13T15:09:50.311+0000] {logging_mixin.py:190} INFO - 🧪 View experiment at: http://mlflow-server:5500/#/experiments/1
+[2025-07-13T15:09:50.510+0000] {python.py:240} INFO - Done. Returned value was: {'status': 'success', 'precision': {'auc_pr': 0.4674354961259938, 'precision': 0.6452830188679245, 'recall': 0.4523809523809524, 'f1': 0.5318818040435459, 'threshold': 0.8479536771774292}}
+[2025-07-13T15:09:50.527+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-07-13T15:09:50.528+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=fraud_detection_training, task_id=execute_training, run_id=manual__2025-07-13T14:42:42.833547+00:00, execution_date=20250713T144242, start_date=20250713T144245, end_date=20250713T150950
+[2025-07-13T15:09:50.609+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-07-13T15:09:50.629+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-07-13T15:09:50.629+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

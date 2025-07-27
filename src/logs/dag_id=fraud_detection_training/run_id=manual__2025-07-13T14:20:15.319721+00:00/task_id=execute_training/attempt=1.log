@@ -1,0 +1,43 @@
+[2025-07-13T14:20:17.393+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-07-13T14:20:17.418+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fraud_detection_training.execute_training manual__2025-07-13T14:20:15.319721+00:00 [queued]>
+[2025-07-13T14:20:17.433+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fraud_detection_training.execute_training manual__2025-07-13T14:20:15.319721+00:00 [queued]>
+[2025-07-13T14:20:17.433+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2025-07-13T14:20:17.450+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): execute_training> on 2025-07-13 14:20:15.319721+00:00
+[2025-07-13T14:20:17.459+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=2841) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-07-13T14:20:17.460+0000] {standard_task_runner.py:72} INFO - Started process 2842 to run task
+[2025-07-13T14:20:17.461+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'fraud_detection_training', 'execute_training', 'manual__2025-07-13T14:20:15.319721+00:00', '--job-id', '37', '--raw', '--subdir', 'DAGS_FOLDER/fraud_detection_training_dag.py', '--cfg-path', '/tmp/tmpn2e63wey']
+[2025-07-13T14:20:17.462+0000] {standard_task_runner.py:105} INFO - Job 37: Subtask execute_training
+[2025-07-13T14:20:17.517+0000] {task_command.py:467} INFO - Running <TaskInstance: fraud_detection_training.execute_training manual__2025-07-13T14:20:15.319721+00:00 [running]> on host 2d98890b302a
+[2025-07-13T14:20:17.633+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='datamasterylab.com' AIRFLOW_CTX_DAG_ID='fraud_detection_training' AIRFLOW_CTX_TASK_ID='execute_training' AIRFLOW_CTX_EXECUTION_DATE='2025-07-13T14:20:15.319721+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-13T14:20:15.319721+00:00'
+[2025-07-13T14:20:17.634+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-07-13T14:20:21.499+0000] {warnings.py:112} WARNING - /opt/***/dags/fraud_detection_training.py:45: UserWarning: The numpy.array_api submodule is still experimental. See NEP 47.
+  from numpy.array_api import astype
+
+[2025-07-13T14:20:21.538+0000] {fraud_detection_training_dag.py:23} INFO - Initializing fraud detection training
+[2025-07-13T14:20:21.545+0000] {fraud_detection_training.py:120} INFO - Configuration loaded successfully
+[2025-07-13T14:20:21.958+0000] {fraud_detection_training.py:164} INFO - Minio connection verified. Buckets: ['mlflow']
+[2025-07-13T14:20:22.925+0000] {fraud_detection_training.py:314} INFO - Starting model training process
+[2025-07-13T14:20:22.925+0000] {fraud_detection_training.py:189} INFO - Connecting to kafka topic transactions
+[2025-07-13T14:20:22.926+0000] {logging_mixin.py:190} INFO - Kafka config - topic: %s, servers: %s, protocol: %s transactions ['broker:29092'] PLAINTEXT
+[2025-07-13T14:20:22.928+0000] {conn.py:396} INFO - <BrokerConnection client_id=kafka-python-2.2.13, node_id=bootstrap-0 host=broker:29092 <connecting> [IPv4 ('172.18.0.10', 29092)]>: connecting to broker:29092 [('172.18.0.10', 29092) IPv4]
+[2025-07-13T14:20:22.932+0000] {conn.py:618} INFO - <BrokerConnection client_id=kafka-python-2.2.13, node_id=bootstrap-0 host=broker:29092 <checking_api_versions_recv> [IPv4 ('172.18.0.10', 29092)]>: Broker version identified as 2.6
+[2025-07-13T14:20:22.933+0000] {conn.py:457} INFO - <BrokerConnection client_id=kafka-python-2.2.13, node_id=bootstrap-0 host=broker:29092 <connected> [IPv4 ('172.18.0.10', 29092)]>: Connection complete.
+[2025-07-13T14:20:22.934+0000] {consumer.py:120} WARNING - group_id is None: disabling auto-commit.
+[2025-07-13T14:20:22.934+0000] {subscription_state.py:181} INFO - Updating subscribed topics to: ('transactions',)
+[2025-07-13T14:20:22.937+0000] {subscription_state.py:254} INFO - Updated partition assignment: [('transactions', 0)]
+[2025-07-13T14:20:22.938+0000] {conn.py:396} INFO - <BrokerConnection client_id=kafka-python-2.2.13, node_id=1 host=broker:29092 <connecting> [IPv4 ('172.18.0.10', 29092)]>: connecting to broker:29092 [('172.18.0.10', 29092) IPv4]
+[2025-07-13T14:20:22.939+0000] {conn.py:457} INFO - <BrokerConnection client_id=kafka-python-2.2.13, node_id=1 host=broker:29092 <connected> [IPv4 ('172.18.0.10', 29092)]>: Connection complete.
+[2025-07-13T14:20:22.939+0000] {conn.py:945} INFO - <BrokerConnection client_id=kafka-python-2.2.13, node_id=bootstrap-0 host=broker:29092 <connected> [IPv4 ('172.18.0.10', 29092)]>: Closing connection. 
+[2025-07-13T14:20:22.940+0000] {fetcher.py:418} INFO - Resetting offset for partition ('transactions', 0) to offset 0.
+[2025-07-13T14:21:30.779+0000] {conn.py:945} INFO - <BrokerConnection client_id=kafka-python-2.2.13, node_id=1 host=broker:29092 <connected> [IPv4 ('172.18.0.10', 29092)]>: Closing connection. 
+[2025-07-13T14:21:30.780+0000] {fetcher.py:785} INFO - Fetch to node 1 failed: Cancelled: <BrokerConnection client_id=kafka-python-2.2.13, node_id=1 host=broker:29092 <connected> [IPv4 ('172.18.0.10', 29092)]>
+[2025-07-13T14:21:35.277+0000] {fraud_detection_training.py:235} INFO - Kafka data read successfully with fraud rate: 0.36%
+[2025-07-13T14:22:09.410+0000] {fraud_detection_training.py:394} INFO - Starting hyperparameter tuning...
+[2025-07-13T14:22:09.423+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/joblib/parallel.py:1379: UserWarning: Loky-backed parallel loops cannot be called in a multiprocessing, setting n_jobs=1
+  n_jobs = self._backend.configure(
+
+[2025-07-14T13:50:42.121+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-07-14T13:50:42.139+0000] {taskinstance.py:2604} INFO - Dependencies not met for <TaskInstance: fraud_detection_training.execute_training manual__2025-07-13T14:20:15.319721+00:00 [failed]>, dependency 'Task Instance State' FAILED: Task is in the 'failed' state.
+[2025-07-14T13:50:42.144+0000] {local_task_job_runner.py:166} INFO - Task is not able to be run
